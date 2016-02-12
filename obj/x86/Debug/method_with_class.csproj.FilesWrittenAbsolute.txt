@@ -1,0 +1,5 @@
+/Users/IllIonairedan/Projects/method_with_class/method_with_class/obj/x86/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/IllIonairedan/Projects/method_with_class/method_with_class/bin/Debug/method_with_class.exe.mdb
+/Users/IllIonairedan/Projects/method_with_class/method_with_class/bin/Debug/method_with_class.exe
+/Users/IllIonairedan/Projects/method_with_class/method_with_class/obj/x86/Debug/method_with_class.exe
+/Users/IllIonairedan/Projects/method_with_class/method_with_class/obj/x86/Debug/method_with_class.exe.mdb
