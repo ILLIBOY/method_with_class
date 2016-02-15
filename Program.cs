@@ -2,21 +2,30 @@
 
 namespace method_and_class
 {
-	class MainClass
+	class cat
 	{
+		public string name;
+		public string Color;
 
-		static double Square(double arg)
+		public void meow()
 		{
-			return arg * arg;
+			Console.WriteLine ("name : {0}, color : {1}", name, Color);
 		}
-
-		public static void Main (string[] args)
+	}
+		
+	class MainAPP
+	{
+		static void Main(string[] args)
 		{
-			Console.Write ("수를 입력하세요 : ");
-			string input = Console.ReadLine ();
-			double arg = Convert.ToDouble (input);
+			cat Kitty = new cat();
+			Kitty.Color = "white";
+			Kitty.name = "kitty";
+			Kitty.meow();
 
-			Console.WriteLine ("result : {0}", Square (arg));
+			cat nero = new cat();
+			nero.Color = "black";
+			nero.name = "nero";
+			nero.meow();
 		}
 	}
 }
