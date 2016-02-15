@@ -5,11 +5,29 @@ namespace method_and_class
 	class cat
 	{
 		public string name;
-		public string Color;
+		public string color;
+
+		public cat()
+		{
+			name = "";
+			color = "";
+		}
+
+		public cat(string _name, string _color)
+		{
+			name=_name;
+			color=_color;
+		}
+
+		~cat()
+		{
+			Console.WriteLine ("{0} : goodbye", name);
+		}
+			
 
 		public void meow()
 		{
-			Console.WriteLine ("name : {0}, color : {1}", name, Color);
+			Console.WriteLine ("{0} : 야옹", name);
 		}
 	}
 		
@@ -17,15 +35,10 @@ namespace method_and_class
 	{
 		static void Main(string[] args)
 		{
-			cat Kitty = new cat();
-			Kitty.Color = "white";
-			Kitty.name = "kitty";
-			Kitty.meow();
-
-			cat nero = new cat();
-			nero.Color = "black";
-			nero.name = "nero";
-			nero.meow();
+			cat Kitty = new cat ("kitty", "white");
+			Kitty.meow ();
+			cat bongbong = new cat ("bongbong", "brown");
+			bongbong.meow ();
 		}
 	}
 }
