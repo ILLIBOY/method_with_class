@@ -2,43 +2,47 @@
 
 namespace method_and_class
 {
-	class cat
+	class myclass
 	{
-		public string name;
-		public string color;
+		public int myfield1;
+		public int myfield2;
 
-		public cat()
+		public myclass deepcopy()
 		{
-			name = "";
-			color = "";
-		}
+			myclass newcopy = new myclass ();
+			newcopy.myfield1 = this.myfield1;
+			newcopy.myfield2 = this.myfield2;
 
-		public cat(string _name, string _color)
-		{
-			name=_name;
-			color=_color;
-		}
-
-		~cat()
-		{
-			Console.WriteLine ("{0} : goodbye", name);
-		}
-			
-
-		public void meow()
-		{
-			Console.WriteLine ("{0} : 야옹", name);
+			return newcopy;
 		}
 	}
-		
-	class MainAPP
+
+	class MainApp
 	{
 		static void Main(string[] args)
 		{
-			cat Kitty = new cat ("kitty", "white");
-			Kitty.meow ();
-			cat bongbong = new cat ("bongbong", "brown");
-			bongbong.meow ();
+			Console.WriteLine ("shallow copy");
+			{
+				myclass source = new myclass ();
+				source.myfield1 = 10;
+				source.myfield2 = 20;
+				myclass target = source;
+				target.myfield2 = 30;
+				Console.WriteLine ("{0} {1}", source.myfield1, source.myfield2);
+				Console.WriteLine ("{0} {1}", target.myfield1, target.myfield2);
+			}
+
+			Console.WriteLine ("Deep Copy");
+
+			{
+				myclass source = new myclass ();
+				source.myfield1 = 10;
+				source.myfield2 = 20;
+				myclass target = source.deepcopy ();
+				target.myfield2 = 30;
+				Console.WriteLine ("{0} {1}", source.myfield1, source.myfield2);
+				Console.WriteLine ("{0} {1}", target.myfield1, target.myfield2);
+			}
 		}
 	}
 }
