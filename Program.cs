@@ -2,31 +2,20 @@
 
 namespace method_and_class
 {
-	class myclass
+	class waterheater
 	{
-		int a, b, c;
+		protected int temperature;
 
-		public myclass()
+		public void settemperature (int temperature)
 		{
-			this.a = 5425;
-			Console.WriteLine ("myclass()");
+			if (temperature < -5 || temperature > 42)
+				throw new Exception ("Out of temperature range");
+			this.temperature = temperature;
 		}
 
-		public myclass(int b): this()
+		internal void TurnOnWater()
 		{
-			this.b = b;
-			Console.WriteLine ("myclass({0})",b);
-		}
-
-		public myclass (int b, int c) : this (b)
-		{
-			this.c = c;
-			Console.WriteLine ("myclass({0}. {1})", b, c);
-		}
-
-		public void printfield()
-		{
-			Console.WriteLine ("a:{0}, b:{1}, c:{2}", a, b, c);
+			Console.WriteLine ("Turn on wanter : {0}", temperature);
 		}
 	}
 
@@ -34,18 +23,22 @@ namespace method_and_class
 	{
 		static void Main(string[] args)
 		{
-			myclass a = new myclass ();
-			a.printfield ();
-			Console.WriteLine ();
+			try
+			{
+				waterheater heater = new waterheater();
+				heater.settemperature(20);
+				heater.TurnOnWater();
 
-			myclass b = new myclass (1);
-			b.printfield ();
-			Console.WriteLine ();
+				heater.settemperature(-2);
+				heater.TurnOnWater();
 
-			myclass c = new myclass (10,  20);
-			c.printfield ();
-			Console.WriteLine ();
+				heater.settemperature(50);
+				heater.TurnOnWater();
+			}
+			catch (Exception e) 
+			{
+				Console.WriteLine (e.Message);
+			}
 		}
 	}
-
 }
