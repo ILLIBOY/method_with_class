@@ -2,18 +2,29 @@
 
 namespace method_and_class
 {
-	class myclass
+	class employee
 	{
-		public int myfield1;
-		public int myfield2;
+		private string name;
+		private string position;
 
-		public myclass deepcopy()
+		public void setname(string name)
 		{
-			myclass newcopy = new myclass ();
-			newcopy.myfield1 = this.myfield1;
-			newcopy.myfield2 = this.myfield2;
+			this.name = name;
+		}
 
-			return newcopy;
+		public string getname()
+		{
+			return name;
+		}
+
+		public void setposition(string position)
+		{
+			this.position = position;
+		}
+
+		public string getposition()
+		{
+			return position;
 		}
 	}
 
@@ -21,28 +32,11 @@ namespace method_and_class
 	{
 		static void Main(string[] args)
 		{
-			Console.WriteLine ("shallow copy");
-			{
-				myclass source = new myclass ();
-				source.myfield1 = 10;
-				source.myfield2 = 20;
-				myclass target = source;
-				target.myfield2 = 30;
-				Console.WriteLine ("{0} {1}", source.myfield1, source.myfield2);
-				Console.WriteLine ("{0} {1}", target.myfield1, target.myfield2);
-			}
+			employee pooh = new employee ();
+			pooh.setname ("pooh");
+			pooh.setposition ("waiter");
+			Console.WriteLine ("{0} {1}", pooh.getname (), pooh.getposition ());
 
-			Console.WriteLine ("Deep Copy");
-
-			{
-				myclass source = new myclass ();
-				source.myfield1 = 10;
-				source.myfield2 = 20;
-				myclass target = source.deepcopy ();
-				target.myfield2 = 30;
-				Console.WriteLine ("{0} {1}", source.myfield1, source.myfield2);
-				Console.WriteLine ("{0} {1}", target.myfield1, target.myfield2);
-			}
 		}
 	}
 }
