@@ -2,29 +2,31 @@
 
 namespace method_and_class
 {
-	class employee
+	class myclass
 	{
-		private string name;
-		private string position;
+		int a, b, c;
 
-		public void setname(string name)
+		public myclass()
 		{
-			this.name = name;
+			this.a = 5425;
+			Console.WriteLine ("myclass()");
 		}
 
-		public string getname()
+		public myclass(int b): this()
 		{
-			return name;
+			this.b = b;
+			Console.WriteLine ("myclass({0})",b);
 		}
 
-		public void setposition(string position)
+		public myclass (int b, int c) : this (b)
 		{
-			this.position = position;
+			this.c = c;
+			Console.WriteLine ("myclass({0}. {1})", b, c);
 		}
 
-		public string getposition()
+		public void printfield()
 		{
-			return position;
+			Console.WriteLine ("a:{0}, b:{1}, c:{2}", a, b, c);
 		}
 	}
 
@@ -32,11 +34,18 @@ namespace method_and_class
 	{
 		static void Main(string[] args)
 		{
-			employee pooh = new employee ();
-			pooh.setname ("pooh");
-			pooh.setposition ("waiter");
-			Console.WriteLine ("{0} {1}", pooh.getname (), pooh.getposition ());
+			myclass a = new myclass ();
+			a.printfield ();
+			Console.WriteLine ();
 
+			myclass b = new myclass (1);
+			b.printfield ();
+			Console.WriteLine ();
+
+			myclass c = new myclass (10,  20);
+			c.printfield ();
+			Console.WriteLine ();
 		}
 	}
+
 }
