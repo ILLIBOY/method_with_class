@@ -2,20 +2,27 @@
 
 namespace method_and_class
 {
-	class waterheater
+	class Mammal
 	{
-		protected int temperature;
-
-		public void settemperature (int temperature)
+		public void Nurse()
 		{
-			if (temperature < -5 || temperature > 42)
-				throw new Exception ("Out of temperature range");
-			this.temperature = temperature;
+			Console.WriteLine ("Nurse()");
 		}
+	}
 
-		internal void TurnOnWater()
+	class Dog : Mammal
+	{
+		public void Bark()
 		{
-			Console.WriteLine ("Turn on wanter : {0}", temperature);
+			Console.WriteLine ("Bark()");
+		}
+	}
+
+	class Cat : Mammal
+	{
+		public void Meow()
+		{
+			Console.WriteLine ("Meow()");
 		}
 	}
 
@@ -23,22 +30,25 @@ namespace method_and_class
 	{
 		static void Main(string[] args)
 		{
-			try
-			{
-				waterheater heater = new waterheater();
-				heater.settemperature(20);
-				heater.TurnOnWater();
+			Mammal mammal = new Dog ();
+			Dog dog;
 
-				heater.settemperature(-2);
-				heater.TurnOnWater();
-
-				heater.settemperature(50);
-				heater.TurnOnWater();
-			}
-			catch (Exception e) 
+			if (mammal is Dog) 
 			{
-				Console.WriteLine (e.Message);
+				dog = (Dog)mammal;
+				dog.Bark();
 			}
+			Mammal mammal2 = new Cat ();
+
+			Cat cat = mammal2 as Cat;
+			if (cat != null)//not null. compelete change;
+				cat.Meow ();
+
+			Cat cat2 = mammal as Cat;
+			if (cat2 != null)
+				cat2.Meow ();
+			else
+				Console.WriteLine ("Cat2 is not a Cat");
 		}
 	}
 }
